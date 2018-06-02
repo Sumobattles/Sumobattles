@@ -289,3 +289,20 @@
 	color: black;
 	font-family: "Oswald", sans-serif;
 }
+
+#fertGod {
+	position: absolute;
+	height: 50%;
+	left: 15%;
+	top: 10%;
+	transform: translate(-10%, -15%);
+
+}
+
+#cherryB {
+	position: absolute;
+	height: 60%;
+	left: 100%;
+	top: 0%;
+	transform: translate(-100%, -0%);
+}

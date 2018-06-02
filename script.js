@@ -96,7 +96,7 @@ function SUMO2DEFAULT(leve) {
 
 	this.move0 = {
 		moveName: "MOVE0DEFAULT",
-		movePP: 5,
+		movePP: 10,
 		go: function(es) {
 			if(this.movePP > 0) {
 				if( critFind(this.bCrit) ) {
@@ -256,15 +256,21 @@ function i0() {
 }
 
 function i1() {
-
+if(turn==0) {
+		chosenMov = 2;
+	}
 }
 
 function i2() {
-
+if(turn==0) {
+		chosenMov = 3;
+	}
 }
 
 function i3() {
-
+if(turn==0) {
+		chosenMov = 4;
+	}
 }
 
 
@@ -323,6 +329,10 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 
 		setTimeout(function() {document.getElementById("backGround").src = "images\\Afterlife.png";
 			document.getElementById("sumoB2").removeAttribute("src");
+			document.getElementById("cherryB").setAttribute("src", "images\\tumblr_o4cq91N1ZO1snc5kxo2_r1_500.gif");
+			document.getElementById("fertGod").setAttribute("src", "images\\fertGod.png");
+			document.getElementById("hBar").style.opacity = "0";
+			document.getElementById("iBar").style.opacity = "0";
 		}, 900);
 
 		setTimeout(function() {fadeIn()}, 900);
