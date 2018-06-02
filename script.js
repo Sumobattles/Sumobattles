@@ -20,6 +20,8 @@ var input4 = document.getElementById("inputM4");
 
 var stage = 0; // stage is the current plot-position of the game
 
+var fadeTime = 0;
+
 
 function critFind(n) {
 	var ret = Math.ceil(Math.random() * (100));
@@ -274,7 +276,7 @@ if(turn==0) {
 }
 
 
-input4.setAttribute("onclick", "i4()");
+//input4.setAttribute("onclick", "i4()");
 
 function i4() {
 
@@ -285,6 +287,39 @@ function i4() {
 
 	setTimeout(function() {starterB(testS1, testS2)}, 2500);
 }
+
+function beginning() {
+	document.getElementById("foreGround").style.backgroundColor = "black";
+	document.getElementById("foreGround").style.opacity = 1;
+	fadeTime = 1;
+	document.getElementById("bText").innerHTML = "WELCOME";
+}
+beginning();
+
+
+
+function ending() {
+	document.getElementById("bText").style.opacity = 1;
+	document.getElementById("bText").innerHTML = "THE END";
+
+	fadeOut();
+}
+
+function preG() {
+	fadeIn();
+	input4.removeAttribute("onclick");
+	input4.setAttribute("onclick", "i4()");
+	setTimeout( function() {
+		document.getElementById("bText").style.opacity = 0;
+	}, 900 );
+}
+
+function afterG() {
+	ending();
+}
+
+
+input4.setAttribute("onclick", "preG()");
 
 
 
@@ -308,11 +343,14 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 
 		fadeOut();
 
-		setTimeout(function() {document.getElementById("backGround").src = "images\\stage0.png";
+		setTimeout(function() {document.getElementById("backGround").src = "images\\stage0 ORIGINAL.png";
 			document.getElementById("sumoB1").removeAttribute("src");
 			document.getElementById("sumoB2").removeAttribute("src");
 			document.getElementById("hBar").style.opacity = "0";
 			document.getElementById("iBar").style.opacity = "0";
+
+			document.getElementById("cherryB").removeAttribute("src");
+			document.getElementById("fertGod").removeAttribute("src");
 
 			document.getElementById("SumoMan").setAttribute("src", "images\\SumoMain.png");
 			document.getElementById("coachS").setAttribute("src", "images\\coachS.png");
@@ -322,6 +360,12 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 		setTimeout(function() {fadeIn()}, 900);
 
 		setTimeout(function() {animToEnd()}, 2500);
+
+		setTimeout(function() {
+			input4.style.opacity = 1;
+			input4.setAttribute("onclick", "afterG()");
+		}, 5000);		
+
 	} else {
 		clearInterval(bTiming);
 
@@ -333,6 +377,21 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 			document.getElementById("fertGod").setAttribute("src", "images\\fertGod.png");
 			document.getElementById("hBar").style.opacity = "0";
 			document.getElementById("iBar").style.opacity = "0";
+
+
+
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
+
+			input0.setAttribute("onclick", "i11()");
+			input1.setAttribute("onclick", "i12()");
+			input2.setAttribute("onclick", "i13()");
+			input3.setAttribute("onclick", "i14()");
+
+	input4.style.opacity = 0;
+
 		}, 900);
 
 		setTimeout(function() {fadeIn()}, 900);
@@ -340,9 +399,27 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 }
 
 
+function i11() {
+	testS1 = new SUMO1DEFAULT(testS1.level);
+	document.getElementById("cherryB").removeAttribute("src");
+	document.getElementById("fertGod").removeAttribute("src");
+	starterB(testS1, testS2);
+}
+
+function i12() {
+
+}
+
+function i13() {
+
+}
+
+function i14() {
+
+}
 
 
-var fadeTime = 0;
+
 
 function fadeOut() {
 	if(fadeTime < 1) {
