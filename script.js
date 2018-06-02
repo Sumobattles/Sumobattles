@@ -275,7 +275,9 @@ function i4() {
 	// RESET THING: NOT NEEDED THOUGH
 		testS2 = new SUMO2DEFAULT(testS2.level);
 
-	starterB(testS1, testS2);
+	animToCent();
+
+	setTimeout(function() {starterB(testS1, testS2)}, 2500);
 }
 
 
@@ -292,8 +294,8 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 	input2.style.opacity = 0;
 	input3.style.opacity = 0;
 
-	input4.style.opacity = 1;
-	input4.setAttribute("onclick", "i4()");
+	input4.style.opacity = 0.5;
+//	input4.setAttribute("onclick", "i4()");
 
 	if(a) {
 		clearInterval(bTiming);
@@ -312,6 +314,8 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 		}, 900);
 
 		setTimeout(function() {fadeIn()}, 900);
+
+		setTimeout(function() {animToEnd()}, 2500);
 	} else {
 		clearInterval(bTiming);
 
