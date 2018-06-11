@@ -5,9 +5,10 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	border-style: solid;
+	border-style: dotted;
 	border-color: black;
-	border-width: 0.1em;
+	border-width: 0.5em;
+	background-color: #DCDCDC;
 }
 
 .gScreen {
@@ -17,11 +18,11 @@
 	top: 10%;
 	left: 10%;
 	transform: translate(-10%, -10%);
-	border-style: solid;
-	border-color: black;
-	border-width: 0.1em;
+	border-style: outset;
+	border-color: white;
+	border-width: 0.5em;
 	margin: 0;
-	overflow: hidden
+	overflow: hidden;
 
 }
 
@@ -32,9 +33,10 @@
 	top: 92.5%;
 	left: 50%;
 	transform: translate(-50%, -92.5%);
-	border-style: solid;
-	border-color: black;
-	border-width: 0.1em;
+	border-style: outset;
+	border-color: white;
+	border-width: 0.2em;
+	background-color: #A9A9A9;
 }
 
 .sideBar {
@@ -44,11 +46,12 @@
 	top: 20%;
 	left: 97.5%;
 	transform: translate(-97.5%, -20%);
-	border-style: solid;
-	border-color: black;
-	border-width: 0.1em;
+	border-style: outset;
+	border-color: white;
+	border-width: 0.2em;
+	background-color: #A9A9A9;
 
-	font-size: 1em;
+	font-size: 1.5em;
 	color: black;
 	font-family: "Oswald", sans-serif;
 
@@ -114,9 +117,9 @@
 	top: 50%;
 	left: 2%;
 	transform: translate(-2%, -50%);
-	border-style: solid;
+/*	border-style: solid;
 	border-color: black;
-	border-width: 0.1em;
+	border-width: 0.1em; */
 }
 
 .eInfo {
@@ -128,19 +131,24 @@
 	transform: translate(-98%, -30%);
 	border-style: solid;
 	border-color: black;
-	border-width: 0.1em;
+	border-width: 0.2em;
+	color: #DCDCDC;
+	background-color: #696969;
+	font-family: "Oswald", sans-serif;
+	font-size: 1.5em;
 }
 
 .eCos {
 	position: absolute;
 	height: 3%;
-	width: 8%;
+	width: 10%;
 	top: 95%;
 	left: 98%;
 	transform: translate(-98%, -95%);
-	border-style: solid;
+	color: white;
+/*	border-style: solid;
 	border-color: black;
-	border-width: 0.1em;
+	border-width: 0.1em;*/
 }
 
 .stageC {
@@ -317,4 +325,26 @@
 	font-weight: 700;
 	font-size: 5em;
 	z-index: 101;
+}
+
+#titler {
+	position: absolute;
+	transform: rotate(270deg);
+
+	top: 40%;
+	left: -10%;
+	width: 40em;
+}
+
+#SumoEn {
+	position: absolute;
+	z-index: 20;
+	transform: translate(-50%, -50%);
+	top: 40%;
+	left: 50%;
+	height: 20%;
+}
+
+body {
+	background-color: #708090;
 }
