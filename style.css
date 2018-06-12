@@ -192,6 +192,14 @@
 	transform: translate(-80%, -90%);
 	height: 70%;
 }
+/*
+#sumoB2 {
+	position: absolute;
+	height: 50%;
+	left: 15%;
+	top: 0%;
+	transform: translate(-0%, -15%);
+} */
 
 #sumoB2 {
 	position: absolute;
@@ -199,7 +207,8 @@
 	left: 15%;
 	top: 0%;
 	transform: translate(-0%, -15%);
-}
+} 
+
 
 .hBar {
 	position: absolute;
@@ -269,10 +278,10 @@
 
 .statBox {
 	position: absolute;
-	top: 105%;
+	top: 90%;
 	left: 60%;
-	transform: translate(-60%, -105%);
-	font-size: 0.8em;
+	transform: translate(-50%, -50%);
+	font-size: 0.6em;
 	color: black;
 	font-family: "Oswald", sans-serif;
 	font-weight: 600;

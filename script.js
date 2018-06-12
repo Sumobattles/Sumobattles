@@ -326,6 +326,11 @@ function battling(a, b) {
 		document.getElementById("lvlBarO").innerHTML = "LEVEL " + b.level;
 
 
+		if(sInfo == "") {
+			setInputs(1);
+		}
+
+
  	if(turn == 0) {
  		if(chosenMov) {
  			doMove(chosenMov, a, b)
@@ -344,8 +349,11 @@ function battling(a, b) {
 
 
  		if(chosenMov) {
- 				doMove(chosenMov, b, a)
- 				turn = 0;
+ 				
+ 			
+ 			doMove(chosenMov, b, a)
+ 			turn = 0;
+ 			
  		}
  		chosenMov = null;
  		
@@ -379,27 +387,38 @@ function battling(a, b) {
 
 function goAfterlife() {
 	enderB(0);
-	setTimeout( function() {
+
+/*	setTimeout( function() {
 	 			setText("You feel a tingling sensation after being knocked out... You see Inari Okami, the god of agriculature, in your daze. You feel your connection with her...", 10000);
 	 }, 1000);
 	setTimeout(function() {
 		sInfo = "Inari Okami: I have invested all my power into you for your revival. As the embodiment of me, you must push forward!";
 		setTimeout( function() {
-			i11();
+			resetFade(0);
+				input4.style.opacity = 1;
+			input4.setAttribute( "onclick", "i11()");
 		}, 10000)
 	}, 12000);
-/*		var qt = Math.floor(Math.random() * q.length);
+*/
+
+setText("You feel a tingling sensation after being knocked out... You see Inari Okami, the god of agriculature, in your daze. You feel your connection with her...", 10000);
+
+		var qt = Math.floor(Math.random() * q.length);
 	setTimeout( function () {
 
+		input0.style.opacity = 1;
+		input1.style.opacity = 1;
+		input2.style.opacity = 1;
+		input3.style.opacity = 1;
 
-		input0.setAttribute("onclick", i12);
-		input1.setAttribute("onclick", i12);
-		input2.setAttribute("onclick", i12);
-		input3.setAttribute("onclick", i12);
+		input0.setAttribute("onclick", "i12()");
+		input1.setAttribute("onclick", "i12()");
+		input2.setAttribute("onclick", "i12()");
+		input3.setAttribute("onclick", "i12()");
 
 
 
-		q[qt].correctSNum.setAttribute("onclick", i11);
+		q[qt].correctSNum.setAttribute("onclick", "i11()");
 
 		sInfo = q[qt].quest;
 
@@ -407,7 +426,11 @@ function goAfterlife() {
 		input1.innerHTML = q[qt].solution1;
 		input2.innerHTML = q[qt].solution2;
 		input3.innerHTML = q[qt].solution3;	
-	}, 3000);	*/
+	}, 10100);	
+
+
+
+
 }
 
 function battleWin(a) {
@@ -415,39 +438,81 @@ function battleWin(a) {
 	testS1 = new SUMO1DEFAULT(a.level+1, "Ebisu");
 }
 
+
+
 function doMove(m,p1,p2) {					// IMPORTANT TO NOTE THAT IN POKE OBJECTS, MOVES START AT 0; BUT FOR NATURAL OUTSIDE USE, MOVES START AT 1
 	switch(m) {
 		case 1:
 			p1.move0.go(p2);
 			setText( p1.name + " uses move: " + p1.move0.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 2:
 			p1.move1.go(p2);
 			setText( p1.name + " uses move: " + p1.move1.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 3:
 			p1.move2.go(p2);
 			setText( p1.name + " uses move: " + p1.move2.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 4:
 			p1.move3.go(p2);
 			setText( p1.name + " uses move: " + p1.move3.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 5:
 			p1.move4.go(p2);
 			setText( p1.name + " uses move: " + p1.move4.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 6:
 			p1.move5.go(p2);
 			setText( p1.name + " uses move: " + p1.move5.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 7:
 			p1.move6.go(p2);
 			setText( p1.name + " uses move: " + p1.move6.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 		case 8:
 			p1.move7.go(p2);
 			setText( p1.name + " uses move: " + p1.move7.moveName, 3000 );
+			setInputs(0);
+			input0.style.opacity = 1;
+			input1.style.opacity = 1;
+			input2.style.opacity = 1;
+			input3.style.opacity = 1;
 			break;
 	}
 }
@@ -456,10 +521,16 @@ function doMove(m,p1,p2) {					// IMPORTANT TO NOTE THAT IN POKE OBJECTS, MOVES 
 function starterB(x, y) {		// X IS THE MAIN CHARACTER; Y IS OPPOSING CHARACTER
 	isBattling = true;
 
+
+
 	setText("HAKEYOI!", 1000);
 	setTimeout( function() { setText("The battle has begun between sumo wrestlers: " + x.name + " and " + y.name, 6000 ) }, 3000 );
 
 	fadeOut();
+
+	setTimeout( function() {
+		resetFade(0);
+	}, 3000)
 
 	setTimeout(function() {document.getElementById("backGround").src = "images\\BattleScene.png";
 		document.getElementById("SumoEn").removeAttribute("src");
@@ -480,7 +551,18 @@ function starterB(x, y) {		// X IS THE MAIN CHARACTER; Y IS OPPOSING CHARACTER
 
 		document.getElementById("iBar").style.opacity = "1";
 		document.getElementById("sumoB1").setAttribute("src", "images\\battleMain.png");
-		document.getElementById("sumoB2").setAttribute("src", "images\\SumoEx.png");
+
+
+		if(testS3.bHealth <= 0) {
+ 			document.getElementById("sumoB2").setAttribute("src", "images\\Opponent3.png");
+		} else if(testS2.bHealth <= 0) {
+			document.getElementById("sumoB2").setAttribute("src", "images\\Opponent2.png");
+		} else {
+			document.getElementById("sumoB2").setAttribute("src", "images\\Opponent1.png");
+		}
+
+
+	//		document.getElementById("sumoB2").setAttribute("src", "images\\SumoEx.png");
 
 	}, 900);
 
@@ -523,6 +605,31 @@ function starterB(x, y) {		// X IS THE MAIN CHARACTER; Y IS OPPOSING CHARACTER
 }
 
 var ranMove = [];
+
+function setInputs(a) {
+	if(a) {
+		input0.setAttribute("onclick", "i0()");
+		input1.setAttribute("onclick", "i1()");
+		input2.setAttribute("onclick", "i2()");
+		input3.setAttribute("onclick", "i3()");
+		input0.style.opacity = 1;
+		input1.style.opacity = 1;
+		input2.style.opacity = 1;
+		input3.style.opacity = 1;
+
+	} else {
+		input0.removeAttribute("onclick");
+		input1.removeAttribute("onclick");
+		input2.removeAttribute("onclick");
+		input3.removeAttribute("onclick");
+		input0.style.opacity = 0;
+		input1.style.opacity = 0;
+		input2.style.opacity = 0;
+		input3.style.opacity = 0;
+
+	}
+}
+
 
 function getMoves(num) {
 	var arr = []
@@ -591,7 +698,12 @@ if(turn==0) {
 	}
 }
 
+function resetFade(a) {
 
+		fadeTime = null;
+		setTimeout(function() {fadeTime = a;}, 300);
+
+}
 
 
 
@@ -676,6 +788,8 @@ function afterG() {
 }
 
 function stage1B() {
+
+
 	if(testS3.bHealth > 0) {
 
 		input4.removeAttribute("onclick");
@@ -753,6 +867,14 @@ input4.setAttribute("onclick", "preG()");
 
 function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 	isBattling = false;
+/*
+	setTimeout( function() {
+		resetFade(0.1);
+		setTimeout( function () {
+			fadeIn();
+		}, 400);
+	}, 100)
+*/
 
 	input0.removeAttribute("onclick");
 	input1.removeAttribute("onclick");
@@ -832,16 +954,16 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 			document.getElementById("iBar").style.opacity = "0";
 
 
-
+/*
 			input0.style.opacity = 1;
 			input1.style.opacity = 1;
 			input2.style.opacity = 1;
-			input3.style.opacity = 1;
-
+			input3.style.opacity = 1;	*/
+/*
 			input0.setAttribute("onclick", "i11()");
 			input1.setAttribute("onclick", "i12()");
 			input2.setAttribute("onclick", "i13()");
-			input3.setAttribute("onclick", "i14()");
+			input3.setAttribute("onclick", "i14()"); */
 
 	input4.style.opacity = 0;
 
@@ -855,18 +977,30 @@ function enderB(a) {	// a represents win or loss; 1 = win; 0 = loss
 function i11() {
 	testS1 = new SUMO1DEFAULT(testS1.level, "Ebisu");
 	setText("CORRECT!", 1000);
-	setTimeout(function() {sInfo = ""}, 1000 )
+
+	input0.removeAttribute("src");
+	input1.removeAttribute("src");
+	input2.removeAttribute("src");
+	input3.removeAttribute("src");
+
+	setInputs(1);
+
+	setTimeout(function() {sInfo = ""}, 1000 );
 	document.getElementById("cherryB").removeAttribute("src");
 	document.getElementById("fertGod").removeAttribute("src");
-	if(testS2.bHealth > 0) {
-		starterB(testS1, testS2);
-	} else if(testS3.bHealth > 0) {
-		starterB(testS1, testS3);
-	} else if(testS4.bHealth > 0) {
-		starterB(testS1, testS4);
-	} else {
-		alert("Error");
-	}
+
+	setTimeout(function() {
+		if(testS2.bHealth > 0) {
+			starterB(testS1, testS2);
+		} else if(testS3.bHealth > 0) {
+			starterB(testS1, testS3);
+		} else if(testS4.bHealth > 0) {
+			starterB(testS1, testS4);
+		} else {
+			alert("Error");
+		}
+	}, 1100); 
+
 }
 
 function i12() {
@@ -994,7 +1128,7 @@ function Question(q, s1, s2, s3, s4, cs) {
 	this.correctSNum = cs;
 }
 var q = [];
- q[0] = new Question("Which of the following was not a reason for sumo wrestling?", "Combat training", "Scaring away other cultures", "Scaring away evil kami", "Was a beloved sport", input2);
+ q[0] = new Question("Which of the following was not a reason for sumo wrestling?", "Combat training", "Scaring away other cultures", "Scaring away evil kami", "Was a beloved sport", input1);
  q[1] = new Question("Which of the following moves are illegal?", "Lifting", "Throwing", "Pushing", "Punching", input3);
  q[2] = new Question("Who was one of the first sumo wrestlers?", "Nomi no Sukune", "Hakuho", "Taiho", "Takanohana II", input0);
 
